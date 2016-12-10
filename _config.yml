@@ -1,15 +1,9 @@
-# Permalinks
-#
-# Use of `relative_permalinks` ensures post links from the index work properly.
-# permalink:           pretty
-
 gems: 
   - jekyll-paginate
   - jekyll-polyglot
 
 exclude: ['LICENSE.md', 'README.md']
 
-# Setup
 title:               Matheus Bratfisch
 tagline:             'Cogito ergo sum'
 url:                 
@@ -17,7 +11,7 @@ baseurl:             ''
 paginate:            1
 excerpt_separator:   '<!--more-->'
 analytics:           'UA-5825966-12'
-# About/contact
+
 author:
   name:              Matheus Bratfisch
   url:               https://twitter.com/
@@ -29,7 +23,7 @@ author:
     github:          'https://github.com/x-warrior'
     twitter:         'https://twitter.com/matheusbrat'
     linkedin:        'https://www.linkedin.com/in/matheusbratfisch'
-# Custom vars
+
 version:             1.0.0
 
 
