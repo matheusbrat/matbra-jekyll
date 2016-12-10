@@ -1,4 +1,5 @@
- group :jekyll_plugins do
+ source 'https://rubygems.org' do
    gem "jekyll-paginate"
    gem "jekyll-polyglot"
  end
+ 
