@@ -37,6 +37,7 @@
 /* Prevent scroll on narrow devices */
 html,
 body {
+  background-color: #F0F1F2;
   overflow-x: hidden;
 }
 
@@ -82,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (min-width: 56em) {
   .container {
-    max-width: 38rem;
+    max-width: 42rem;
   }
 }
 
@@ -98,6 +99,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 1rem;
   margin-bottom: 3rem;
   border-bottom: 1px solid #eee;
+  background-color: #ffffff;
 }
 .masthead-title {
   margin-top: 0;
@@ -168,6 +170,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 .sidebar-item {
   padding: 1rem;
+}
+.sidebar-separator {
+  padding: 2rem 1rem 0rem 1rem;
 }
 .sidebar-item p:last-child {
   margin-bottom: 0;
@@ -309,6 +314,8 @@ a.sidebar-nav-item:focus {
 
 .page,
 .post {
+  background: #FFFFFF;
+  padding: 1em 2em 1em 2em;
   margin-bottom: 4em;
 }
 
@@ -371,6 +378,7 @@ a.sidebar-nav-item:focus {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
   color: #ccc;
   text-align: center;
+  background-color: #ffffff;
 }
 
 /* Pagination items can be `span`s or `a`s */
@@ -550,14 +558,73 @@ a.pagination-item:hover {
       -ms-transform: translateX(0);
           transform: translateX(0);
 }
-.sidebar-overlay #sidebar-checkbox:checked ~ .sidebar-toggle {
+/*.sidebar-overlay #sidebar-checkbox:checked ~ .sidebar-toggle {
   box-shadow: 0 0 0 .25rem #fff;
 }
 .sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {
   box-shadow: .25rem 0 .5rem rgba(0,0,0,.1);
-}
+}*/
 
 /* Only one tweak for a reverse layout */
 .layout-reverse.sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {
   box-shadow: -.25rem 0 .5rem rgba(0,0,0,.1);
+}
+
+@media (max-width: 40em) {
+  .sidebar {
+    left: auto;
+    right: -14rem;
+  }
+
+  .sidebar-toggle {
+    left: auto;
+    right: 1rem;
+  }
+
+  #sidebar-checkbox:checked ~ .sidebar,
+  #sidebar-checkbox:checked ~ .wrap,
+  #sidebar-checkbox:checked ~ .sidebar-toggle {
+    -webkit-transform: translateX(-14rem);
+        -ms-transform: translateX(-14rem);
+            transform: translateX(-14rem);
+  }
+
+  .sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {
+    box-shadow: -.25rem 0 .5rem rgba(0,0,0,.1);
+  }
+
+}
+
+.sidebar-personal-info-section p {
+  text-align: center;
+  margin-top: 0.25em;
+}
+
+.sidebar-personal-info-section i {
+  font-size: 1.3em;
+}
+
+.sidebar-personal-info-section img {
+  border-radius: 50%;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+#share-box a {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.sidebar-languages {
+  margin-top: 0.1em;
+  text-align: center;
+}
+
+.sidebar-languages div {
+  display: inline-block;
+}
+
+.comments {
+  background: #FFFFFF;
+  padding:10px;
 }

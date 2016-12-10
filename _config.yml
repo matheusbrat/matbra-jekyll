@@ -1,22 +1,75 @@
 # Permalinks
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           pretty
-relative_permalinks: true
+# permalink:           pretty
+
+gems: 
+  - jekyll-paginate
+  - jekyll-polyglot
+
+exclude: ['LICENSE.md', 'README.md']
 
 # Setup
-title:               Lanyon
-tagline:             'A Jekyll theme'
-description:         'A reserved <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:                 http://lanyon.getpoole.com
+title:               Matheus Bratfisch
+tagline:             'Cogito ergo sum'
+url:                 
 baseurl:             ''
-paginate:            5
-
+paginate:            1
+excerpt_separator:   '<!--more-->'
+analytics:           'UA-5825966-12'
 # About/contact
 author:
-  name:              Mark Otto
-  url:               https://twitter.com/mdo
-  email:             markdotto@gmail.com
-
+  name:              Matheus Bratfisch
+  url:               https://twitter.com/
+  email:             matheusbrat@gmail.com
+  description:       ''
+  gravatar:          '60baed8344cc0d5b979b09c35042ede5'
+  linkedin:          'https://www.linkedin.com/in/matheusbratfisch'
+  contact:           
+    github:          'https://github.com/x-warrior'
+    twitter:         'https://twitter.com/matheusbrat'
+    linkedin:        'https://www.linkedin.com/in/matheusbratfisch'
 # Custom vars
 version:             1.0.0
+
+
+languages: ["en", "pt_BR"]
+default_lang: "en"
+exclude_from_localization: ["public", "images", "css"]
+parallel_localization: true
+
+
+# # Welcome to Jekyll!
+# #
+# # This config file is meant for settings that affect your whole blog, values
+# # which you are expected to set up once and rarely edit after that. If you find
+# # yourself editing this file very often, consider using Jekyll's data files
+# # feature for the data you need to update frequently.
+# #
+# # For technical reasons, this file is *NOT* reloaded automatically when you use
+# # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# # Site settings
+# # These are used to personalize your new site. If you look in the HTML files,
+# # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# # You can create any custom variable you would like, and they will be accessible
+# # in the templates via {{ site.myvariable }}.
+# title: Your awesome title
+# email: your-email@domain.com
+# description: > # this means to ignore newlines until "baseurl:"
+#   Write an awesome description for your new site here. You can edit this
+#   line in _config.yml. It will appear in your document head meta (for
+#   Google search results) and in your feed.xml site description.
+# baseurl: "" # the subpath of your site, e.g. /blog
+# url: "" # the base hostname & protocol for your site, e.g. http://example.com
+# twitter_username: jekyllrb
+# github_username:  jekyll
+
+# # Build settings
+# markdown: kramdown
+# theme: minima
+# gems:
+#   - jekyll-feed
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
