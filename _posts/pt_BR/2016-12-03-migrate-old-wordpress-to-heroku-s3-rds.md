@@ -28,7 +28,8 @@ Depois de alguns bons longos anos com o blog parado, decidi voltar a escrever e 
 7. Altere seu wp-config.php
     1. Todas as configurações **privadas** devem usar getenv, essa função é responsável por pegar as informações das variaveis de ambiente no PHP
 
-    ```
+    {% highlight php %}
+    <?php
     define('AUTH_KEY',         getenv('WP_AUTH_KEY'));
     define('SECURE_AUTH_KEY',  getenv('WP_SECURE_AUTH_KEY'));
     define('LOGGED_IN_KEY',    getenv('WP_LOGGED_IN_KEY'));
@@ -43,11 +44,11 @@ Depois de alguns bons longos anos com o blog parado, decidi voltar a escrever e 
     define('S3_UPLOADS_KEY', getenv('AWS_S3_KEY'));
     define('S3_UPLOADS_SECRET', getenv('AWS_S3_SECRET'));
     define('S3_UPLOADS_REGION', getenv('AWS_S3_REGION')); 
-    ```
+    {% endhighlight %}
 
 8. Crie um arquivo composer.json para definir pacotes e versão do PHP 
     1. Exemplo composer.json
-    ```
+    {% highlight json %}
     {
       "require" : {
           "php": ">=7.0.0"
@@ -55,7 +56,7 @@ Depois de alguns bons longos anos com o blog parado, decidi voltar a escrever e 
       "require-dev": {
       }
     }
-    ```
+    {% endhighlight %}
 
 9. Execute `composer update` para gerar o composer.lock
 10. Altere o seu .htaccess para fazer redirect dos uploads para o S3

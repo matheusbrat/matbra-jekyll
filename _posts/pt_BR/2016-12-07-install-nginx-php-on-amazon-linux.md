@@ -16,42 +16,43 @@ Estou migrando meu blog e alguns outros serviços para a infraestrutura da Amazo
 3. `yum install php70 php70-fpm php70-mysqlnd`
 4. Edite /etc/nginx/conf.d/virtual.conf
 
-	```
-	server {
-	    listen       3000;
-	
-	    location / {
-	        root   /var/www/;
-	        index  index.php index.html index.htm;
-	    }
-	
-	    location ~ \.php$ {
-	        root /var/www/;
-	        fastcgi_pass   unix:/var/run/php-fpm/php-fpm.sock;
-	        fastcgi_index  index.php;
-	        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-	        include        fastcgi_params;
-	    }
-	```
+{% highlight nginx %}
+server {
+    listen       3000;
+
+    location / {
+        root   /var/www/;
+        index  index.php index.html index.htm;
+    }
+
+    location ~ \.php$ {
+        root /var/www/;
+        fastcgi_pass   unix:/var/run/php-fpm/php-fpm.sock;
+        fastcgi_index  index.php;
+        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        include        fastcgi_params;
+    }
+}
+{% endhighlight %}
 
 5. Edite as seguintes propriedades do: /etc/php-fpm-7.0.d/www.conf
-	```
-	user = nginx
-	group = nginx
+{% highlight nginx %}
+user = nginx
+group = nginx
 
-	listen = /var/run/php-fpm/php-fpm.sock
+listen = /var/run/php-fpm/php-fpm.sock
 
-	listen.owner = nginx
-	listen.group = nginx
-	listen.mode = 0660
-	```
+listen.owner = nginx
+listen.group = nginx
+listen.mode = 0660
+{% endhighlight %}
 
 6. Crie um arquivo php em /var/www/
-	```
-	<?php
-	phpinfo();
-	?>
-	```
+{% highlight php %}
+<?php
+phpinfo();
+?>
+{% endhighlight %}
 
 7. Acesse http://SERVER_IP:3000 
 

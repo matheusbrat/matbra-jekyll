@@ -28,7 +28,8 @@ After a few good years with my blog out of date, I decided to start to write aga
 7. Update your wp-config 
     1. All your **private** configs must use getenv, this function will be responsible to fetch the values from env vars.
     
-    ```
+    {% highlight php %}
+    <?php
     define('AUTH_KEY',         getenv('WP_AUTH_KEY'));
     define('SECURE_AUTH_KEY',  getenv('WP_SECURE_AUTH_KEY'));
     define('LOGGED_IN_KEY',    getenv('WP_LOGGED_IN_KEY'));
@@ -43,11 +44,11 @@ After a few good years with my blog out of date, I decided to start to write aga
     define('S3_UPLOADS_KEY', getenv('AWS_S3_KEY'));
     define('S3_UPLOADS_SECRET', getenv('AWS_S3_SECRET'));
     define('S3_UPLOADS_REGION', getenv('AWS_S3_REGION')); 
-    ```
+    {% endhighlight %}
 
 8. Create a composer.json file to define requirements and packages versions
     1. Exemple composer.json
-    ```
+    {% highlight json %}
     {
       "require" : {
           "php": ">=7.0.0"
@@ -55,7 +56,7 @@ After a few good years with my blog out of date, I decided to start to write aga
       "require-dev": {
       }
     }
-    ```
+    {% endhighlight %}
 
 9. Execute `composer update` to generate the composer.lock file 
 10. Update your .htaccess file to redirect your uploads to your S3 bucket
