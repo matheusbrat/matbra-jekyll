@@ -7,6 +7,7 @@ tags: git githooks
 comments: true
 ---	
 
+
 Eu expliquei [como enviar seu código para o seu próprio servidor]({% post_url /pt_BR/2016-12-08-pushing-to-your-own-remote-git %}) e depois disso você talvez queira executar algumas ações específicas, no meu caso eu gostaria que meu blog fosse atualizado quando eu enviasse uma nova versão para o git então eu usei um `post-receive hook.
 
 Este script vai manter as 3 últimas versões do seu código, então se algo der errado, você pode fazer rollback mudando o link. Para fazer isso o script utiliza a variável DEPLOY_PATH e cria uma nova pasta `sources` nela, a qual vai ter as versões do seu site. A versão ativa é basicamente um link simbolico (symlink) da pasta live para a pasta `sources`
@@ -39,10 +40,9 @@ do
         mkdir -p $VERSION_PATH
         mkdir -p $VERSION_PATH/sources
 
-        git clone $REPO_PATH $VERSION_PATH
-        git checkout $DEPLOY_BRANCH
+        git --work-tree=$VERSION_PATH --git-dir=$REPO_PATH checkout -f $DEPLOY_BRANCH
         # Remove git files
-        rm -rf $VERSION_PATH/.git
+        rm -rf $VERSION_PATH.git
         rm -rf $LIVE_PATH
         ln -s $VERSION_PATH $LIVE_PATH
 

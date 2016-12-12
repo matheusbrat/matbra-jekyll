@@ -39,8 +39,7 @@ do
         mkdir -p $VERSION_PATH
         mkdir -p $VERSION_PATH/sources
 
-        git clone $REPO_PATH $VERSION_PATH
-        git checkout $DEPLOY_BRANCH
+        git --work-tree=$VERSION_PATH --git-dir=$REPO_PATH checkout -f $DEPLOY_BRANCH
         # Remove git files
         rm -rf $VERSION_PATH/.git
         rm -rf $LIVE_PATH
