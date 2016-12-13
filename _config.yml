@@ -6,7 +6,7 @@ exclude: ['LICENSE.md', 'README.md']
 
 title:               Matheus Bratfisch
 tagline:             'Cogito ergo sum'
-url:                 
+url:                 'http://www.matbra.com'
 baseurl:             ''
 paginate:            1
 excerpt_separator:   '<!--more-->'
