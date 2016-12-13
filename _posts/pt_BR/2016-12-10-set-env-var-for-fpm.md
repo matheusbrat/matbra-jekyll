@@ -7,7 +7,7 @@ tags: php fpm
 comments: true
 ---	
 
-Após [instalar o nginx e o PHP]({% post_url /en/2016-12-07-install-nginx-php-on-amazon-linux %}), eu queria passar variáveis de ambiente para o PHP 7 para que eu não tivesse que salvar as configurações para o meu repositório.
+Após [instalar o nginx e o PHP]({% post_url /pt_BR/2016-12-07-install-nginx-php-on-amazon-linux %}), eu queria passar variáveis de ambiente para o PHP 7 para que eu não tivesse que salvar as configurações para o meu repositório.
 
 Quando você utiliza variáveis de ambiente o ideal é defini-las sem deixa-las salvas, porém nesse caso eu salvei as mesmas.
 

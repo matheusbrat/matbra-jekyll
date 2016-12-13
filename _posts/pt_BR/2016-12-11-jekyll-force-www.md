@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Forçar www no endereço do seu Jekyll usando Javascript
-lang: en
+lang: pt_BR
 description: Forçar www no endereço do seu Jekyll usando Javascript
 tags: jekyll javascript
 comments: true

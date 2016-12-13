@@ -3,7 +3,7 @@ layout: post
 title: Deploy after push to your own git
 lang: en
 description: How to deploy your code automatically after a git push
-tags: git githooks
+tags: git githook
 comments: true
 ---	
 
