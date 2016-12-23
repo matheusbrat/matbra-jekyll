@@ -8,7 +8,7 @@ title:               Matheus Bratfisch
 tagline:             'Cogito ergo sum'
 url:                 'http://www.matbra.com'
 baseurl:             ''
-paginate:            1
+paginate:            10
 excerpt_separator:   '<!--more-->'
 analytics:           'UA-5825966-12'
 
