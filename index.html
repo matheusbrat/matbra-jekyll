@@ -26,7 +26,11 @@ title: Home
     
     {% if excerpt_words != content_words %}
       <p><a href="{{ post.url }}#read-more" role="button">Read more <i class="fa fa-arrow-circle-right"></i></a></p>
+    {% else %}
+      <p><a href="{{ post.url }}" role="button">Comment <i class="fa fa-arrow-circle-right"></i></a></p>
+
     {% endif %}
+    {% include share-buttons.html share_url=post.url share_title=post.title %}
   </div>
   {% endfor %}
 </div>
