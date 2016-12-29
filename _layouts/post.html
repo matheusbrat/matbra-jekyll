@@ -15,12 +15,12 @@ layout: default
 
 <div class="pagination">
  {% if page.previous %}
-    <a class="pagination-item older" href="{{ page.previous.url }}/">{{page.previous.title}}</a>
+    <a class="pagination-item older" href="{{ page.previous.url }}">{{page.previous.title}}</a>
   {% else %}
     <span class="pagination-item older">Older</span>
   {% endif %}
   {% if page.next %}
-    <a class="pagination-item newer" href="{{ page.next.url }}/">{{page.next.title}}</a>
+    <a class="pagination-item newer" href="{{ page.next.url }}">{{page.next.title}}</a>
   {% else %}
     <span class="pagination-item older">Older</span>
   {% endif %}
