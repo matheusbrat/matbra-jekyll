@@ -29,3 +29,5 @@ O código é bem simples, ele vai importar seu app do server.js, adicionar o dat
 Eu acredito que isso vai funcionar para outros bancos de dados, como MySQL. Se não funcionar, me avise, eu posso tentar ajudar.
 
 Matheus
+
+PS: Ele não vai fazer uma gerencia como o Django faz pra você, então as vezes você pode cair em estados indesejáveis, acredito que o ideal seria utilizar loopback com NoSQL

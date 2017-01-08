@@ -30,3 +30,5 @@ I think this will work for most of datasources, but if it doesn't work for yours
 
 
 Matheus
+
+PS: Loopback will not create migrations and do a proper job as Django, sometimes you can get to weird states, it seems Loopback works better with NoSQL databases.
