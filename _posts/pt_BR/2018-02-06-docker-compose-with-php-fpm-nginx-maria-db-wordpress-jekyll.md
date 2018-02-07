@@ -88,7 +88,7 @@ Já que eu não adicione meus arquivos do website, eu criei um comando `init.sh`
 
 Com isso eu consigo facilmente criar meu "sistema" em uma nova máquina.
 
-(https://github.com/x-warrior/blog-docker)[https://github.com/x-warrior/blog-docker]
+[https://github.com/x-warrior/blog-docker](https://github.com/x-warrior/blog-docker)
 
 Eu espero que seja útil.
 Matheus

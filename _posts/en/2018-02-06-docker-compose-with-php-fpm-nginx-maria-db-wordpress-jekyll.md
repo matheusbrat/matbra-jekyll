@@ -88,7 +88,7 @@ Because I'm not adding my website files to the image, I have created a command `
 
 With this I can easily spin up a new machine with my website structure.
 
-(https://github.com/x-warrior/blog-docker)[https://github.com/x-warrior/blog-docker]
+[https://github.com/x-warrior/blog-docker](https://github.com/x-warrior/blog-docker)
 
 I hope this will be helpful for you.
 Matheus
