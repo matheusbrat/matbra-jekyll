@@ -7,7 +7,7 @@ tags: linux aws docker docker-compose php-fpm nginx mariadb jekyll wordpress ec2
 comments: true
 --- 
 
-Como expliquei recentemente, eu tinha um blog rodando no wordpress e decidi migrar para o Jekyll, mas existia um detalhe, eu não queria perder os links que já apontavam para o meu blog em wordpress, para atingir isso, (Eu fiz o setup de um nginx o qual irá tentar encontrar arquivos estáticos do Jekyll e no caso de falha irá fazer um fallback para o wordpress)[http://www.matbra.com/2016/12/22/nginx-redirect-multiserver.html].
+Como expliquei recentemente, eu tinha um blog rodando no wordpress e decidi migrar para o Jekyll, mas existia um detalhe, eu não queria perder os links que já apontavam para o meu blog em wordpress, para atingir isso, [Eu fiz o setup de um nginx o qual irá tentar encontrar arquivos estáticos do Jekyll e no caso de falha irá fazer um fallback para o wordpress](http://www.matbra.com/2016/12/22/nginx-redirect-multiserver.html).
 
 Eu estava rodando os mesmos em uma instancia ec2 com RDS e o preço estava um pouco alto, então decidi mover tudo para uma unica máquina e utilizar o docker para poder mudar facilmente meu website de servidor.
 
@@ -65,7 +65,7 @@ Eu estou usando um Dockerfile modificado, o qual vem do php:7.0-fpm e adiciona s
 Neste container eu estou mapeando alguns arquivos php e configurações:
 - ./wordpress.matbra.com para /var/www/wordpress.matbra.com meus arquivos do wordpress
 - ./php7fpm/sendmail.mc para /usr/share/sendmail/cf/debian/sendmail.mc meu arquivo de configuração para o sendmail
-- ./php7fpm/gmail-auth.db para /etc/mail/authinfo/gmail-auth.db meu arquivo de senha para o gmail (Configuring gmail as relay to sendmail)[https://linuxconfig.org/configuring-gmail-as-sendmail-email-relay]
+- ./php7fpm/gmail-auth.db para /etc/mail/authinfo/gmail-auth.db meu arquivo de senha para o gmail [Configuring gmail as relay to sendmail](https://linuxconfig.org/configuring-gmail-as-sendmail-email-relay)
 
 Eu também estou mapeando as portas 9000 para 9000, então o nginx irá se comunicar com o php-fpm nestas portas e criando um link para o mariadb e criando um hostname
 
@@ -88,7 +88,7 @@ Já que eu não adicione meus arquivos do website, eu criei um comando `init.sh`
 
 Com isso eu consigo facilmente criar meu "sistema" em uma nova máquina.
 
-https://github.com/x-warrior/blog-docker
+(https://github.com/x-warrior/blog-docker)[https://github.com/x-warrior/blog-docker]
 
 Eu espero que seja útil.
 Matheus

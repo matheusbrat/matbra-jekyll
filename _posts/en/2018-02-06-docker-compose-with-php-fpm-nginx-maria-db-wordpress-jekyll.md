@@ -7,7 +7,7 @@ tags: linux aws docker docker-compose php-fpm nginx mariadb jekyll wordpress ec2
 comments: true
 --- 
 
-As I explained recently, I had a blog running Wordpress and decided to move to Jekyll but there was a catch, I didn't want to loose any link I had to my wordpress blog, to achieve this, (I setup an nginx which will try to find a static file from jekyll and if it is not found it will fallback to Wordpress)[http://www.matbra.com/2016/12/22/nginx-redirect-multiserver.html].
+As I explained recently, I had a blog running Wordpress and decided to move to Jekyll but there was a catch, I didn't want to loose any link I had to my wordpress blog, to achieve this, [I setup an nginx which will try to find a static file from jekyll and if it is not found it will fallback to Wordpress](http://www.matbra.com/2016/12/22/nginx-redirect-multiserver.html).
 
 I was running my server on ec2 instance with RDS and it was becoming a little bit expensive, so I decided to move everything to one machine and dockerize my setup so I could easily switch my servers.
 
@@ -65,7 +65,7 @@ I'm using a custom Dockerfile which comes from php:7.0-fpm and add sendmail supp
 On this container I'm basically mapping some php files and config files:
 - ./wordpress.matbra.com to /var/www/wordpress.matbra.com which are my wordpress files
 - ./php7fpm/sendmail.mc to /usr/share/sendmail/cf/debian/sendmail.mc which is my configuration file for sendmail
-- ./php7fpm/gmail-auth.db to /etc/mail/authinfo/gmail-auth.db which is the password for my gmail (Configuring gmail as relay to sendmail)[https://linuxconfig.org/configuring-gmail-as-sendmail-email-relay]
+- ./php7fpm/gmail-auth.db to /etc/mail/authinfo/gmail-auth.db which is the password for my gmail [Configuring gmail as relay to sendmail](https://linuxconfig.org/configuring-gmail-as-sendmail-email-relay)
 
 I'm also mapping the port 9000 to 9000, so I will communicate with PHP-FPM on this ports, creating a link to mariadb and naming my hostname.
 
@@ -88,7 +88,7 @@ Because I'm not adding my website files to the image, I have created a command `
 
 With this I can easily spin up a new machine with my website structure.
 
-https://github.com/x-warrior/blog-docker
+(https://github.com/x-warrior/blog-docker)[https://github.com/x-warrior/blog-docker]
 
 I hope this will be helpful for you.
 Matheus
