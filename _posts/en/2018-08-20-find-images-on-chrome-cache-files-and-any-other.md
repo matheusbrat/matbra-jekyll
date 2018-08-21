@@ -142,5 +142,4 @@ if __name__=="__main__":
 ```
 
 Reference:
-https://stackoverflow.com/questions/4585527/detect-eof-for-jpg-images
-
+[https://stackoverflow.com/questions/4585527/detect-eof-for-jpg-images](https://stackoverflow.com/questions/4585527/detect-eof-for-jpg-images)
