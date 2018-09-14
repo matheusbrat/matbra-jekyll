@@ -14,8 +14,11 @@ Max did a great job explaining the steps and the reasoning, but I wanted to try 
 
 ```
 - Create a folder at /etc/apk/commit_hooks.d/, which doesn’t exist by default. Extracted folders are not suffixed with .apk-new.
+
 - Create a symlink to /etc/apk/commit_hooks.d/x named anything – say, link. This gets expanded to be called link.apk-new but still points to /etc/apk/commit_hooks.d/x.
+
 - Create a regular file named link (which will also be expanded to link.apk-new). This will write through the symlink and create a file at /etc/apk/commit_hooks.d/x.
+
 - When apk realizes that the package’s hash doesn’t match the signed index, it will first unlink link.apk-new – but /etc/apk/commit_hooks.d/x will persist! It will then fail to unlink /etc/apk/commit_hooks.d/ with ENOTEMPTY because the directory now contains our payload.
 ```
 
