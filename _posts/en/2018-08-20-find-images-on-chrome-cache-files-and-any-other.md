@@ -3,7 +3,7 @@ layout: post
 title: Find images on chrome cache files (or any other file!)
 lang: en
 description: Recover images from cache files on chrome or any other binary file
-tags: image chrome jpg png python carving hacker file find
+tags: image chrome jpg jpeg png python carving hacker file find
 comments: true
 --- 
 

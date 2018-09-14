@@ -3,7 +3,7 @@ layout: post
 title: Encontre imagens na Cache do Google Chrome (E Qualquer outro arquivo!)
 lang: pt_BR
 description: Recupere imagens dos arquivos de cache do chrome e de outro arquivo qualquer!
-tags: image chrome jpg png python carving hacker file find
+tags: image chrome jpg jpeg png python carving hacker file find
 comments: true
 --- 
 
