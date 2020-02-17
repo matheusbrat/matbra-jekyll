@@ -99,8 +99,8 @@ Generating public/private ecdsa-sk key pair.
 You may need to touch your authenticator to authorize key generation.
 Enter passphrase (empty for no passphrase): 
 Enter same passphrase again: 
-Your identification has been saved in -f /tmp/test_ecdsa_sk/test_ecdsa_sk
-Your public key has been saved in -f /tmp/test_ecdsa_sk/test_ecdsa_sk.pub
+Your identification has been saved in -f /tmp/test_ecdsa_sk
+Your public key has been saved in -f /tmp/test_ecdsa_sk.pub
 The key fingerprint is:
 SHA256:.../... host@boom
 ```
