@@ -71,7 +71,7 @@ $ cd $HOME/openssl-8/test-openssh/bin
 
 Para rodar os binários você deve usar `./` caso contrário o binário utilizado será o do sistema. Eu não tenho certeza do por que, mas quando utilizei o ssh-keygen estava tendo alguns problemas com a libfido2.so.2
 ```
-$ ./ssh-keygen -t ecdsa-sk 
+$ ./ssh-keygen -t ecdsa-sk -f /tmp/test_ecdsa_sk
 Generating public/private ecdsa-sk key pair.
 You may need to touch your authenticator to authorize key generation.
 /home/matheus/openssl-8/test-openssh/libexec/ssh-sk-helper: error while loading shared libraries: libfido2.so.2: cannot open shared object file: No such file or directory
@@ -85,7 +85,7 @@ Para solucionar isso eu simplesmente copiei a libfido2 para o seguinte caminho: 
 
 Então quando rodei o mesmo novamente sem o token no computador:
 ```
-$ ./ssh-keygen -t ecdsa-sk 
+$ ./ssh-keygen -t ecdsa-sk -f /tmp/test_ecdsa_sk
 Generating public/private ecdsa-sk key pair.
 You may need to touch your authenticator to authorize key generation.
 Key enrollment failed: device not found
@@ -93,13 +93,13 @@ Key enrollment failed: device not found
 
 Depois de plugar o mesmo:
 ```
-$ ./ssh-keygen -t ecdsa-sk -f ~/.ssh/test_ecdsa_sk
+$ ./ssh-keygen -t ecdsa-sk -f /tmp/test_ecdsa_sk
 Generating public/private ecdsa-sk key pair.
 You may need to touch your authenticator to authorize key generation.
 Enter passphrase (empty for no passphrase): 
 Enter same passphrase again: 
-Your identification has been saved in /home/matheus/.ssh/test_ecdsa_sk
-Your public key has been saved in /home/matheus/.ssh/test_ecdsa_sk.pub
+Your identification has been saved in /tmp/test_ecdsa_sk
+Your public key has been saved in /tmp/test_ecdsa_sk.pub
 The key fingerprint is:
 SHA256:.../... host@boom
 ```
@@ -124,7 +124,7 @@ CMD ["/usr/local/sbin/sshd", "-D"]
 Para compilar e rodar:
 ``` 
 $ docker build -t ubuntussh .
-$ docker run -p 2222:22 -v ~/.ssh/test_ecdsa_sk.pub:/root/.ssh/authorized_keys -it ubuntussh bash
+$ docker run -p 2222:22 -v /tmp/test_ecdsa_sk.pub:/root/.ssh/authorized_keys -it ubuntussh bash
 ```
 
 Agora estamos dentro da instancia do docker e rodei os seguintes comandos:
@@ -137,13 +137,13 @@ $ /usr/local/sbin/sshd
 Abra um novo terminal e entre no diretório com os binários do ssh já compilados:
 
 ```
-SSH_AUTH_SOCK= ./ssh -o "PasswordAuthentication=no" -o "IdentitiesOnly=yes" -i ~/.ssh/test_ecdsa_sk root@localhost -p 2222
+SSH_AUTH_SOCK= ./ssh -o "PasswordAuthentication=no" -o "IdentitiesOnly=yes" -i /tmp/test_ecdsa_sk root@localhost -p 2222
 ```
 
 A opcão `SSH_AUTH_SOCK` é para evitar a utilização do ssh-agent que já está rodando, -i é para especificar a chave que desejamos utilizar
 
 ```
-Enter passphrase for key '/home/matheus/.ssh/id_ecdsa_sk': 
+Enter passphrase for key '/tmp/id_ecdsa_sk': 
 Confirm user presence for key ECDSA-SK SHA256:bsIjeSdrNiB4FhxfYBoHH2sCXLiISu9sxDFNrFLgBwY
 ```
 

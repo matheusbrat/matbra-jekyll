@@ -72,7 +72,7 @@ $ cd $HOME/openssl-8/test-openssh/bin
 
 To run the binary we must use `./` otherwise it will use the other binary which are system wide and we want to run the exact one which we just build. I'm not exactly sure why, but when I was running ssh-keygen, I was having some issues to find the libfido2.so.2
 ```
-$ ./ssh-keygen -t ecdsa-sk 
+$ ./ssh-keygen -t ecdsa-sk -f /tmp/test_ecdsa_sk
 Generating public/private ecdsa-sk key pair.
 You may need to touch your authenticator to authorize key generation.
 /home/matheus/openssl-8/test-openssh/libexec/ssh-sk-helper: error while loading shared libraries: libfido2.so.2: cannot open shared object file: No such file or directory
@@ -86,7 +86,7 @@ In my case I found the location of this file and copied it to "/usr/lib64/libfid
 
 After this when running the command to generate it without the fido2 plugged in I got:
 ```
-$ ./ssh-keygen -t ecdsa-sk 
+$ ./ssh-keygen -t ecdsa-sk -f /tmp/test_ecdsa_sk
 Generating public/private ecdsa-sk key pair.
 You may need to touch your authenticator to authorize key generation.
 Key enrollment failed: device not found
@@ -94,13 +94,13 @@ Key enrollment failed: device not found
 
 Plugin the key in and trying again
 ```
-$ ./ssh-keygen -t ecdsa-sk -f ~/.ssh/test_ecdsa_sk
+$ ./ssh-keygen -t ecdsa-sk -f /tmp/test_ecdsa_sk
 Generating public/private ecdsa-sk key pair.
 You may need to touch your authenticator to authorize key generation.
 Enter passphrase (empty for no passphrase): 
 Enter same passphrase again: 
-Your identification has been saved in /home/matheus/.ssh/test_ecdsa_sk
-Your public key has been saved in /home/matheus/.ssh/test_ecdsa_sk.pub
+Your identification has been saved in -f /tmp/test_ecdsa_sk/test_ecdsa_sk
+Your public key has been saved in -f /tmp/test_ecdsa_sk/test_ecdsa_sk.pub
 The key fingerprint is:
 SHA256:.../... host@boom
 ```
@@ -125,7 +125,7 @@ CMD ["/usr/local/sbin/sshd", "-D"]
 To build and run this:
 ``` 
 $ docker build -t ubuntussh .
-$ docker run -p 2222:22 -v ~/.ssh/test_ecdsa_sk.pub:/root/.ssh/authorized_keys -it ubuntussh bash
+$ docker run -p 2222:22 -v /tmp/test_ecdsa_sk.pub:/root/.ssh/authorized_keys -it ubuntussh bash
 ```
 
 Now you will be inside the docker instance and I had to chown the authorized key file and run the sshd:
@@ -138,14 +138,14 @@ $ /usr/local/sbin/sshd
 Open a new terminal and cd into the openssl 8 bin folder again. 
 
 ```
-SSH_AUTH_SOCK= ./ssh -o "PasswordAuthentication=no" -o "IdentitiesOnly=yes" -i ~/.ssh/test_ecdsa_sk root@localhost -p 2222
+SSH_AUTH_SOCK= ./ssh -o "PasswordAuthentication=no" -o "IdentitiesOnly=yes" -i /tmp/test_ecdsa_sk root@localhost -p 2222
 ```
 
 The `SSH_AUTH_SOCK` is to avoid using the ssh-agent which is already running, -i to specify exactly the key I want to use. 
 
 This outputs:
 ```
-Enter passphrase for key '/home/matheus/.ssh/id_ecdsa_sk': 
+Enter passphrase for key '/tmp/test_ecdsa_sk': 
 Confirm user presence for key ECDSA-SK SHA256:bsIjeSdrNiB4FhxfYBoHH2sCXLiISu9sxDFNrFLgBwY
 ```
 
@@ -153,3 +153,9 @@ Now we are in the ubuntussh with FIDO2+password!
 
 Hope this helps you,
 Matheus
+
+Reference:
+[https://bugs.archlinux.org/task/65513](https://bugs.archlinux.org/task/65513)
+[https://github.com/Yubico/libfido2](https://github.com/Yubico/libfido2)
+[https://www.openssh.com/txt/release-8.2](https://www.openssh.com/txt/release-8.2)
+[http://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/](http://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/)
