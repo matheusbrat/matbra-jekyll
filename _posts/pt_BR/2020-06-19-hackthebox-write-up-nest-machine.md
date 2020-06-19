@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hackthebox - Write up of Nest machine
-lang: en
+lang: pt_BR
 description: Hackthebox - Write up of Nest machine
 tags: linux kali pentest vb net smb nmap telnet smbclient smbget smbmap hqk
 comments: true
