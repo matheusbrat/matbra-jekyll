@@ -24,9 +24,10 @@ sudo apt-get install apt-transport-https
 sudo apt-get update
 sudo apt-get install dotnet-sdk-3.1
 
-apt-get install mono-devel
+sudo apt-get install mono-devel
 
 git clone https://github.com/icsharpcode/AvaloniaILSpy.git
+cd AvaloniaILSpy/
 git submodule update --init --recursive
 {% endhighlight %}
 
@@ -34,7 +35,7 @@ git submodule update --init --recursive
 And later to build and run it:
 
 {% highlight bash %}
-$ cd AvaloniaILSpy/
+
 $ bash build.sh
 $ cd artifacts/linux-x64/
 $ ./ILSpy
