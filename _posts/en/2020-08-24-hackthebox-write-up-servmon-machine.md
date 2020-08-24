@@ -159,7 +159,7 @@ Gr4etN3w5w17hMySk1Pa5$
 {% endhighlight %}
 
 That's a possible list of passwords I believe. We have two possible users:
-{% highlight %}
+{% highlight bash %}
 nadine
 nathan
 {% endhighlight %}
@@ -223,7 +223,7 @@ C:\Program Files\NSClient++\nsclient.ini
 
 It has an interesting part
 
-{% highlight %}
+{% highlight ini %}
 ; Undocumented key
 password = ew2x6SsGTxjRwXOT
 
