@@ -244,7 +244,7 @@ $ ssh -L 8443:127.0.0.1:8443 nadine@10.10.10.184
 And open the website on my chrome instance. We can also see there is a Priv Esc for NSClient++ on https://www.exploit-db.com/exploits/46802
 Usually this machines doesn't need reboot but let's try to follow the process more or less. It seems the machine is not that stable but after a few tries I was able to connect to 8443 and login.
 
-{% highlight %}
+{% highlight bash %}
 Add script foobar to call evil.bat and save settings
 - Settings > External Scripts > Scripts
 - Add New
@@ -264,7 +264,7 @@ Add schedulede to call script every 1 minute and save settings
 
 This was a bit painful to run, it didn' t start automatically but when I opened: Console I saw a bunch of messages like:
 
-{% highlight %}
+{% highlight bash %}
 Unknown command(s): foobar available commands: commands {, alias_cpu, alias_cpu_ex, alias_disk, alias_disk_loose, alias_event_log, alias_file_age, alias_file_size, alias_mem, alias_process, alias_process_count, alias_process_hung, alias_process_stopped, alias_sched_all, alias_sched_long, alias_sched_task, alias_service, alias_service_ex, alias_up, alias_volumes, alias_volumes_loose, check_tasksched, checktasksched, foobar}, plugins {, 0, 1}
 {% endhighlight %}
 
