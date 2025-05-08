@@ -28,7 +28,7 @@ author:
 
 version:             1.0.0
 
-
+lang_from_path: true
 languages: ["en", "pt_BR"]
 default_lang: "en"
 exclude_from_localization: ["public", "images", "css"]
