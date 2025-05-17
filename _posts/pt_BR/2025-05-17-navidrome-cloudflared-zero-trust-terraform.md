@@ -50,6 +50,12 @@ variable "tunnel_secret" {
   sensitive = true #  Mark the variable as sensitive
 }
 
+
+variable "emails_allowed" {
+  type = list(string)
+  description = "List e-mail allowed"
+  default = ["<replace>"]
+}
 {% endhighlight %}
 
 Temos coisas bem básicas: ID da conta Cloudflare, token de API, nome de domínio, nome do túnel, intervalo de IP e o segredo do túnel.
@@ -119,7 +125,7 @@ resource "cloudflare_zero_trust_access_policy" "home_network_policy" {
   decision   = "allow"
 
   include {
-    email = ["matheusbrat@gmail.com"]
+    email = var.emails_allowed
   }
 }
 
